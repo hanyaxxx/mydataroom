@@ -1,0 +1,19 @@
+axios 默认配置 
+
+axios.defaults.baseURL = 'http://localhost:8085/'
+axios.defaults.headers['Content-Type'] = 'application/json; charset=UTF-8'
+axios.defaults.withCredentials=true
+
+axios.defaults.transformRequest = [function (data) {
+ 
+  if(typeof data==='string'){
+      return data
+  }
+  let ret = JSON.stringify(data)
+
+  return ret
+}],
+
+
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.headers.common['Authorization'] = 'Auth_TOKEN';
